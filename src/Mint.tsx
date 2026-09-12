@@ -80,7 +80,7 @@ export function Mint() {
       )}
 
       <div className="mt-4">
-        <button
+        <button data-insights="mint"
           className="btn btn-primary"
           onClick={onClick}
           disabled={!Boolean(address) || Boolean(error)}

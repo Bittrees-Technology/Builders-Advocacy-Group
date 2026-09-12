@@ -25,7 +25,7 @@ function MembersPage() {
             </span>
 
             <div className="flex w-full justify-center items-center">
-              <a href="/" className="mx-auto">
+              <a data-insights="navigate-/" href="/" className="mx-auto">
                 <img
                   src="/bag-logo-circle-smaller.png"
                   width="128px"

@@ -33,7 +33,7 @@ function App() {
 
           <footer className="flex flex-col md:flex-row gap-6 mx-auto mt-8 items-center justify-around">
             <div className="underline w-60">
-              <a
+              <a data-insights="navigate-twittercom/voxelsadvocacy"
                 href="https://twitter.com/voxelsadvocacy"
                 target="_blank"
                 rel="noreferrer"
@@ -53,7 +53,7 @@ function App() {
               </Link>
             </div>
             <div className="underline w-60">
-              <a
+              <a data-insights="navigate-voxelsadvocacygitbookio/bag/builders-advocacy-group/welcome"
                 href="https://voxelsadvocacy.gitbook.io/bag/builders-advocacy-group/welcome"
                 target="_blank"
                 rel="noreferrer"

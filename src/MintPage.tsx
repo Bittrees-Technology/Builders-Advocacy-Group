@@ -36,7 +36,7 @@ function MintPage() {
           <footer className="flex flex-col gap-6 mx-auto">
 
             <div>
-              <a href="/" className="mx-auto">
+              <a data-insights="navigate-/" href="/" className="mx-auto">
                 <img
                   src="/bag-logo-circle-smaller.png"
                   width="128px"

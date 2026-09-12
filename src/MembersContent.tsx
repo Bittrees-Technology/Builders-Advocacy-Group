@@ -69,7 +69,7 @@ export function MembersContent() {
               <ul className="max-w-md space-y-1 text-gray-400 list-disc list-outside ms-4 dark:text-gray-400 ">
                 <li className="p-2">Gift Membership</li>
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-etherscanio/token/0x6e8c260cb878489c8066dd75536e5e9b5ca4c288c"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     target="_blank"
                     rel="noreferrer"
@@ -79,7 +79,7 @@ export function MembersContent() {
                   </a>
                 </li>
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-wwwmetaforoio/g/bag/"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     target="_blank"
                     rel="noreferrer"
@@ -89,7 +89,7 @@ export function MembersContent() {
                   </a>
                 </li>
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-snapshotorg//buildersadvocacyeth"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     target="_blank"
                     rel="noreferrer"
@@ -99,7 +99,7 @@ export function MembersContent() {
                   </a>
                 </li>
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-guildxyz/bag"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     target="_blank"
                     rel="noreferrer"
@@ -113,7 +113,7 @@ export function MembersContent() {
             <div className="text-left font-newtimesroman">
               <ul className="max-w-md space-y-1 text-gray-400 list-disc list-outside ms-4 dark:text-gray-400 ">
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-/visionstatement"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     href="/visionstatement"
                   >
@@ -121,7 +121,7 @@ export function MembersContent() {
                   </a>
                 </li>
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-docsgooglecom/document/d/1bxcikhfpnmf305vxgregenfh2dekfkl1ie4"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     target="_blank"
                     rel="noreferrer"
@@ -131,7 +131,7 @@ export function MembersContent() {
                   </a>
                 </li>
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-/billofrights"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     href="/billofrights"
                   >
@@ -139,7 +139,7 @@ export function MembersContent() {
                   </a>
                 </li>
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-docsgooglecom/drawings/d/1s1c37-fnrjz3zzp35ucwn-4vilzramqomg1"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     target="_blank"
                     rel="noreferrer"
@@ -149,7 +149,7 @@ export function MembersContent() {
                   </a>
                 </li>
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-twittercom/voxelsadvocacy"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     target="_blank"
                     rel="noreferrer"
@@ -159,7 +159,7 @@ export function MembersContent() {
                   </a>
                 </li>
                 <li className="p-2">
-                  <a
+                  <a data-insights="navigate-wwwvoxelscom/play"
                     className="text-black no-underline hover:underline hover:text-green-700"
                     target="_blank"
                     rel="noreferrer"
@@ -176,7 +176,7 @@ export function MembersContent() {
 
       {!hasValidMembership && (
         <div className="m-4 mx-auto max-w-xl font-newtimesroman">
-          <a href="/mint">Please go mint your membership!</a>
+          <a data-insights="navigate-/mint" href="/mint">Please go mint your membership!</a>
         </div>
       )}
     </>
