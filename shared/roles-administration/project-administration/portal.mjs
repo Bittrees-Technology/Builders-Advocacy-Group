@@ -1,4 +1,4 @@
-import {ecosystemSources} from '../ecosystem-authority.mjs';
+import {ecosystemSources,administrationOrigin} from '../ecosystem-authority.mjs';
 import {profileScript} from './profile-view.mjs';
 import {createHmac} from 'node:crypto';
 import {createSsoClient,seal,unseal,cookie,readCookie,nodeRequest} from '../sso/client.mjs';
@@ -8,7 +8,7 @@ const ttl=600000;
 export const canInspect=access=>access?.enrolled===true&&access.authoritative===true&&access.expiresAt>Date.now()&&(access.actions.includes('role.operations-viewer')||(access.actions.includes('project.admin')&&/^0x[a-f0-9]{40}$/.test(access.request?.authenticatedWallet||'')&&access.request.subjects.includes(access.request.authenticatedWallet)));
 export function createProjectAdministration(project,{env=process.env,fetcher=fetch,now=Date.now}={}){
  if(!ecosystemSources[project]||!/^[a-z][a-z0-9-]{0,47}$/.test(project))throw Error('Invalid project');
- const origin='https://'+ecosystemSources[project].host,secret=env.BITTREES_ADMIN_SSO_CLIENT_SECRET;
+ const origin=administrationOrigin(project),secret=env.BITTREES_ADMIN_SSO_CLIENT_SECRET;
  const sessionSecret=typeof secret==='string'?createHmac('sha256',secret).update('bittrees project administration session v1:'+origin).digest('hex'):'';
  function session(req){
   if(!secret||secret.length<32)return null;
@@ -24,7 +24,7 @@ export function createProjectAdministration(project,{env=process.env,fetcher=fet
  const response=(body,status=200,type='application/json')=>new Response(type==='application/json'?JSON.stringify(body):body,{status,headers:{...common,'Content-Type':type+'; charset=utf-8'}});
  return async function handle(req){
   const u=new URL(req.url),path=u.pathname;
-  const primary=ecosystemSources[project].host,inbound=req.headers.get('host')||u.host;
+  const primary=new URL(origin).host,inbound=req.headers.get('host')||u.host;
   if(!['ai','mcp','chat','wallet','agent','verse'].includes(project)&&inbound!==primary&&path!=='/api/shared-roles-health'){
    if(req.method==='GET'&&(path==='/administration'||path==='/administration/'||path.startsWith('/api/project-admin/sso/')))return new Response(null,{status:307,headers:{...common,Location:origin+path+u.search}});
    return response({error:'Use the canonical project administration origin.'},403);
@@ -63,4 +63,4 @@ export function createProjectAdministration(project,{env=process.env,fetcher=fet
   }catch{return response({error:'Shared permissions are unavailable. Administration is locked.'},503);}
  };
 }
-export function projectAdministrationNode(project,options){const handle=createProjectAdministration(project,options);return async(req,res)=>{const response=await handle(await nodeRequest(req,'https://'+ecosystemSources[project].host));res.statusCode=response.status;for(const[k,v]of response.headers)if(k!=='set-cookie')res.setHeader(k,v);const cookies=response.headers.getSetCookie();if(cookies.length)res.setHeader('Set-Cookie',cookies);return res.end(await response.text());};}
+export function projectAdministrationNode(project,options){const handle=createProjectAdministration(project,options);return async(req,res)=>{const response=await handle(await nodeRequest(req,administrationOrigin(project)));res.statusCode=response.status;for(const[k,v]of response.headers)if(k!=='set-cookie')res.setHeader(k,v);const cookies=response.headers.getSetCookie();if(cookies.length)res.setHeader('Set-Cookie',cookies);return res.end(await response.text());};}

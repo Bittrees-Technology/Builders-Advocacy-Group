@@ -26,6 +26,8 @@ export const ecosystemSources={
 };
 // Labels reflect established ENS names; enrollment never transfers ENS authority.
 export const administrationDomain=project=>({'bittrees-org':'bittrees.eth','crypto-directory':'cryptodirectory.eth','id-agent-control-center':'idacc.bittrees.eth',nftfactory:'nftfactory.eth',spacetrader:'spacetrader.bittrees.eth',cryptoalegre:'cryptoalegre.bittrees.eth'}[project]||project+'.bittrees.eth');
+// The public apex redirects to www; keep its signed authority-source ID unchanged.
+export const administrationOrigin=project=>project==='builders-advocacy-group'?'https://www.buildersadvocacy.org':'https://'+ecosystemSources[project].host;
 export const scopeFor=project=>'ecosystem.'+project;
 export const resourceFor=project=>'project:'+project;
 const legacyActions={gov:['community.roles.manage','community.moderation.manage','rooms.manage','rooms.propose'],research:['community.roles.manage','community.moderation.manage','rooms.manage','rooms.propose'],capital:['snapshot.refresh'],roles:['directory.read']};
