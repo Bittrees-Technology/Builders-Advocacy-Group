@@ -8,7 +8,7 @@ const matches = path => new RegExp(guard.src).test(new URL(path, 'https://www.bu
 test('unknown extensionless URLs cannot receive the indexable homepage', () => {
   assert.equal(guard.dest, '/404.html');
   assert.match(guard.headers['X-Robots-Tag'], /noindex/);
-  for (const path of ['/missing-seo-check-20261119', '/missing?from=seo', '/missing/', '/missing/nested', '/members/private', '/membership', '/visionstatement/draft']) {
+  for (const path of ['/missing-seo-check-20261119', '/missing?from=seo', '/missing/', '/missing/nested', '/members/private', '/membership', '/visionstatement/draft', '/seo/missing-seo-check', '/seo', '/static/missing-seo-check', '/static']) {
     assert.equal(matches(path), true, path);
   }
 });
