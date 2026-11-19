@@ -59,7 +59,14 @@ Vercel's CRA preset includes a blanket fallback to `index.html`. To prevent root
 metadata from reaching arbitrary paths, `vercel.json` selects the Other preset
 (`framework: null`) with an explicit CRA build command and output directory. The
 four app routes have explicit rewrites; all existing administration/API rewrites
-are retained. Other missing paths use the 404 document. The direct `/index.html`
+are retained. Production verification showed that the hosting integration still
+served the homepage for unknown extensionless paths after the preset override.
+An explicit status-404 route therefore sends only those paths to the noindex
+404 document. It excludes the exact app routes, administration, API/static/SEO
+prefixes, and file paths, leaving their existing resolution intact. Vercel's
+current configuration supports this status route alongside the existing
+rewrites, redirects and headers; those rules are not replaced. Missing files
+continue to use the native 404 response. The direct `/index.html`
 alias redirects to `/`. Root-relative asset paths keep deep links independent of
 their trailing slash without changing administration redirects.
 

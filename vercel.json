@@ -4,6 +4,14 @@
   "installCommand": "yarn install --frozen-lockfile --ignore-scripts",
   "buildCommand": "npm run build",
   "outputDirectory": "build",
+  "routes": [
+    {
+      "src": "^/(?!(?:members|mint|visionstatement|billofrights)/?$|administration/?$|api(?:/|$)|static(?:/|$)|seo(?:/|$)|.*\\.[^/]+$).+$",
+      "dest": "/404.html",
+      "status": 404,
+      "headers": { "X-Robots-Tag": "noindex, follow" }
+    }
+  ],
   "rewrites": [
     {
       "source": "/administration",
