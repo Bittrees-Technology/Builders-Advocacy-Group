@@ -6,7 +6,7 @@
   "outputDirectory": "build",
   "routes": [
     {
-      "src": "^/(?!(?:members|mint|visionstatement|billofrights)/?$|administration/?$|api(?:/|$)|static(?:/|$)|seo(?:/|$)|.*\\.[^/]+$).+$",
+      "src": "^/(?!(?:members|mint|visionstatement|billofrights)/?$|administration/?$|api(?:/|$)|.*\\.[^/]+$).+$",
       "dest": "/404.html",
       "status": 404,
       "headers": { "X-Robots-Tag": "noindex, follow" }
