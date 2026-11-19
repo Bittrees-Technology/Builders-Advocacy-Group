@@ -33,7 +33,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "postbuild": "tsc --project tsconfig.prerender.json && node scripts/build-seo.cjs",
-    "test:seo": "node --test scripts/seo.test.cjs",
+    "test:seo": "node --test scripts/seo.test.cjs scripts/routing.test.cjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
