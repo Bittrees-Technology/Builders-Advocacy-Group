@@ -1,4 +1,9 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "yarn install --frozen-lockfile --ignore-scripts",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
   "rewrites": [
     {
       "source": "/administration",
@@ -15,6 +20,128 @@
     {
       "source": "/api/shared-roles-health",
       "destination": "/api/project-admin"
+    },
+    {
+      "source": "/members",
+      "destination": "/seo/members.html"
+    },
+    {
+      "source": "/members/",
+      "destination": "/seo/members.html"
+    },
+    {
+      "source": "/mint",
+      "destination": "/seo/mint.html"
+    },
+    {
+      "source": "/mint/",
+      "destination": "/seo/mint.html"
+    },
+    {
+      "source": "/visionstatement",
+      "destination": "/seo/visionstatement.html"
+    },
+    {
+      "source": "/visionstatement/",
+      "destination": "/seo/visionstatement.html"
+    },
+    {
+      "source": "/billofrights",
+      "destination": "/seo/billofrights.html"
+    },
+    {
+      "source": "/billofrights/",
+      "destination": "/seo/billofrights.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/members",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/members/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/mint",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/mint/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/visionstatement",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/visionstatement/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/billofrights",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/billofrights/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/static/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
