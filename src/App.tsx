@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ROOT_DESCRIPTION } from "./seo";
 
 function App() {
   return (
@@ -12,18 +13,20 @@ function App() {
 
       <main className="text-center bg-[#eef3ee]">
         <div className="flex flex-col gap-6 p-6">
-          <div className="mx-auto border border-black p-4 w-80 h-80 shadow-md shadow-gray-500 hover:shadow-black">
+          <h1 className="text-2xl font-bold">Builders Advocacy Group</h1>
+          <p className="max-w-xl mx-auto">{ROOT_DESCRIPTION}</p>
+          <div className="mx-auto border border-black p-4 w-80 max-w-full h-80 shadow-md shadow-gray-500 hover:shadow-black">
             <Link to="/mint" className="flex flex-col items-center">
               <div className="text-xl">Mint Membership</div>
               <img
                 src="/bag-briefcase.png"
                 width="256px"
                 height="256px"
-                alt="Business Advocacy Group logo"
+                alt="Builders Advocacy Group logo"
               />
             </Link>
           </div>
-          <div className="mx-auto border border-black p-4 w-80 h-64 flex flex-col justify-center items-center shadow-md shadow-gray-500 hover:shadow-black">
+          <div className="mx-auto border border-black p-4 w-80 max-w-full h-64 flex flex-col justify-center items-center shadow-md shadow-gray-500 hover:shadow-black">
 
             <Link to="/members" className="flex flex-col items-center">
               <div className="text-xl">Members Only Services</div>
@@ -47,7 +50,7 @@ function App() {
                   src="/bag-logo-circle-smaller.png"
                   width="128px"
                   height="128px"
-                  alt="Business Advocacy Group logo"
+                  alt="Builders Advocacy Group logo"
                   className="max-w-xs transition duration-300 ease-in-out hover:scale-110"
                 />
               </Link>
@@ -62,6 +65,10 @@ function App() {
               </a>
             </div>
           </footer>
+          <nav aria-label="Bittrees ecosystem" className="flex flex-wrap gap-6 justify-center text-sm underline">
+            <a href="https://bittrees.org/">Bittrees</a>
+            <a href="https://index.bittrees.org/">Ecosystem</a>
+          </nav>
         </div>
       </main>
 

@@ -1,6 +1,6 @@
 {
   "name": "bag-website",
-  "homepage": "./",
+  "homepage": "/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -32,6 +32,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "tsc --project tsconfig.prerender.json && node scripts/build-seo.cjs",
+    "test:seo": "node --test scripts/seo.test.cjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

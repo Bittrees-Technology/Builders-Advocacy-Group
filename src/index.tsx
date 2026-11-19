@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import PageMeta from "./PageMeta";
 import MintPage from "./MintPage";
 import MembersPage from "./MembersPage";
 import reportWebVitals from "./reportWebVitals";
@@ -66,7 +67,7 @@ const router = createBrowserRouter([
     path: "/billofrights",
     element: <BillOfRightsPage />,
   },
-]);
+].map((route) => ({ ...route, element: <><PageMeta />{route.element}</> })));
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
